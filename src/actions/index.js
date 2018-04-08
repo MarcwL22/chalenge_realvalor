@@ -1,9 +1,7 @@
 import axios from 'axios';
 import { FETCH_COMICS, FETCH_COMICS_SUCCESS, FETCH_ERROR } from './types';
 // Config
-import { hash, public_key, ts } from '../config';
-
-const MARVEL_URL = 'http://gateway.marvel.com/';
+import { hash, public_key, ts, api_url } from '../config';
 
 export const fetchComics = (search = null) => dispatch => {
   const testYear = /(?:(?:19|20)[0-9]{2})/;
@@ -14,7 +12,7 @@ export const fetchComics = (search = null) => dispatch => {
   } else {
     title = search;
   }
-  const req = axios.get(`${MARVEL_URL}/v1/public/comics`, {
+  const req = axios.get(`${api_url}/v1/public/comics`, {
     params: {
       title,
       startYear,
