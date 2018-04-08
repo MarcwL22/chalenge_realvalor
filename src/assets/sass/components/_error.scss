@@ -1,0 +1,14 @@
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  &__heading {
+    font-size: 4rem;
+  }
+  &__msg {
+    font-size: 3rem;
+  }
+}

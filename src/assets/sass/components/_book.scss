@@ -1,0 +1,137 @@
+.book {
+  flex: 0 0 24%;
+  padding: .5rem;
+  border: 1px solid #000;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 45rem;
+  position: relative;
+  @media only screen and (max-width: $bp-medium) {
+    flex: 0 0 32%;
+  }
+  @media only screen and (max-width: $bp-tablet) {
+    flex: 0 0 48%;
+  }
+  @media only screen and (max-width: $bp-small) {
+    flex: 0 0 98%;
+    max-height: initial;
+  }
+  &__img {
+    max-width: 100%;
+    flex: 0 0 35rem;
+    max-height: 35rem;
+    @media only screen and (max-width: $bp-small) {
+      max-height: initial;
+      flex: 1;
+    }
+  }
+  &__heading {
+    font-size: 2rem;
+    flex: 1;
+    overflow: hidden;
+  }
+  &__btn {
+    margin-top: auto;
+    font-size: 1.5rem;
+    align-self: center;
+    transition: all .2s;
+    &:focus {
+      outline: none;
+    }
+    &__img {
+      height: 1.5rem;
+      margin-left: 1rem;
+      transition: all .3s;
+      &--open {
+        transform: rotate(-90deg);
+      }
+      &--close {
+        transform: rotate(90deg);
+      }
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__detail {
+    transition: max-height .4s;
+    position: absolute;
+    bottom: 3rem;
+    background-color: #f8f8f8;
+    border-top: 1px solid #000;
+    border-radius: 3px;
+    width: 100%;
+    left: 0;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 93.5%;
+    visibility: initial;
+    &-group {
+      overflow-y: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    &--hidden {
+      max-height: 0;
+      visibility: hidden;
+      border-color: transparent;
+    }
+    &-title {
+      font-size: 1.4rem;
+    }
+    &-paragraph {
+      font-size: 1.2rem;
+      overflow-y: scroll;
+    }
+  }
+  &__character {
+    display: flex;
+    flex-direction: column;
+    &-btn {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      border: none;
+      font-size: 1.2rem;
+      background-color: transparent;
+      align-items: center;
+      margin: .1rem 0;
+      transition: all .2s;
+      padding: .5rem;
+      border-radius: 5px;
+      &:hover {
+        background-color: #ccc;
+      }
+      &__img {
+        height: 1.5rem;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    &__group {
+      pointer-events: none;
+      display: flex;
+      overflow: hidden;
+      max-height: 100rem;
+      transition: max-height .3s;
+      &--hidden {
+        max-height: 0;
+        opacity: 0;
+      }
+    }
+    &-text {
+      font-size: 1.2rem;
+    }
+    &-img {
+      height: 8rem;
+      width: 8rem;
+      border-radius: 5rem;
+    }
+  }
+}

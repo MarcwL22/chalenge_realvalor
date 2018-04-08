@@ -1,0 +1,30 @@
+{
+  "name": "desafio-realvalor",
+  "version": "0.1.0",
+  "private": true,
+  "author": "Marcus Vinicius",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "crypto-js": "^3.1.9-1",
+    "lodash": "^4.17.5",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1",
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "watch:sass": "node-sass-chokidar src/assets/sass/main.scss src/index.css -w",
+    "start": "concurrently -k \"npm run devserver\" \"npm run watch:sass\"",
+    "devserver": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "node-sass-chokidar": "^1.2.2"
+  }
+}
