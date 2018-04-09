@@ -9,6 +9,8 @@ import { fetchComics } from './actions';
 // Components
 import BookList from './components/bookList';
 
+const widthWindow = window.innerWidth;
+
 class HomePage extends Component {
   state = {
     search: '',
@@ -52,14 +54,16 @@ class HomePage extends Component {
         <div className="pagination">
           <ReactPaginate
             pageCount={comicBooksData.total / 20}
-            pageRangeDisplayed={4}
-            marginPagesDisplayed={1}
+            pageRangeDisplayed={widthWindow > 600 ? 3 : 1}
+            marginPagesDisplayed={2}
             onPageChange={this.handlePageChange}
             containerClassName={'pagination__list'}
             pageClassName={'pagination__item'}
             breakClassName={'pagination__item'}
             activeClassName={'pagination__selected'}
+            previousLabel={widthWindow > 600 ? 'Previous' : '<'}
             previousClassName={'pagination__button pagination__previous'}
+            nextLabel={widthWindow > 600 ? 'Next' : '>'}
             nextClassName={'pagination__button pagination__next'}
           />
         </div>

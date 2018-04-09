@@ -84,14 +84,28 @@ button {
     .pagination__button:hover {
       color: #fff;
       background-color: #000; }
+      @media only screen and (max-width: 37.5em) {
+        .pagination__button:hover {
+          color: #000;
+          background-color: #f8f8f8; } }
   .pagination__previous {
     margin-right: 1rem; }
     .pagination__previous:hover {
       transform: translateX(-5px); }
+    @media only screen and (max-width: 37.5em) {
+      .pagination__previous {
+        margin-right: 0; }
+        .pagination__previous:hover {
+          transform: none; } }
   .pagination__next {
     margin-left: 1rem; }
     .pagination__next:hover {
       transform: translateX(5px); }
+    @media only screen and (max-width: 37.5em) {
+      .pagination__next {
+        margin-left: 0; }
+        .pagination__next:hover {
+          transform: none; } }
   .pagination__item {
     color: #fff;
     padding: .5rem;
@@ -101,6 +115,12 @@ button {
       color: black;
       background-color: white;
       transform: translateY(5px); }
+    @media only screen and (max-width: 37.5em) {
+      .pagination__item {
+        margin: 0;
+        padding: .3rem; }
+        .pagination__item:hover {
+          transform: none; } }
   .pagination__selected {
     align-self: flex-start;
     margin: 0;

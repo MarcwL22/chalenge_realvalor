@@ -25,6 +25,10 @@
     &:hover {
       color: #fff;
       background-color: #000;
+      @media only screen and (max-width: $bp-small) {
+        color: #000;
+        background-color: #f8f8f8;
+      }
     }
   }
   &__previous {
@@ -32,11 +36,23 @@
     &:hover {
       transform: translateX(-5px);
     }
+    @media only screen and (max-width: $bp-small) {
+      margin-right: 0;
+      &:hover {
+        transform: none;
+      }
+    }
   }
   &__next {
     margin-left: 1rem;
     &:hover {
       transform: translateX(5px);
+    }
+    @media only screen and (max-width: $bp-small) {
+      margin-left: 0;
+      &:hover {
+        transform: none;
+      }
     }
   }
   &__item {
@@ -48,6 +64,13 @@
       color: black;
       background-color: white;
       transform: translateY(5px);
+    }
+    @media only screen and (max-width: $bp-small) {
+      margin: 0;
+      padding: .3rem;
+      &:hover {
+        transform: none;
+      }
     }
   }
   &__selected {
