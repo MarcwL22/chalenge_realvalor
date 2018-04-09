@@ -24,7 +24,10 @@ class BookItem extends Component {
     if (showDetail) return this.setState({ characters: [], showDetail: false });
     this.setState(
       { showDetail: !this.state.showDetail, charLoading: available > 0 ? true : false },
-      () => (available > 0 ? _.forEach(items, ({ resourceURI }, i) => this._getCharacters(resourceURI, available)) : null)
+      () =>
+        available > 0
+          ? _.forEach(items, ({ resourceURI }, i) => this._getCharacters(resourceURI.replace('http', 'https'), available))
+          : null
     );
   };
 
@@ -70,7 +73,7 @@ class BookItem extends Component {
             'Carregando ...'
           ) : (
             _.map(characters, ({ name, descrition, thumbnail, id }) => {
-              const imgUrl = `${thumbnail.path}.${thumbnail.extension}`;
+              const imgUrl = `${thumbnail.path.replace('http', 'https')}.${thumbnail.extension}`;
               return (
                 <div key={id} className="book__character">
                   <button className="book__character-btn" onClick={() => this.handleAccordionChar(id)}>
@@ -95,7 +98,7 @@ class BookItem extends Component {
 
   render() {
     const { title, thumbnail, id } = this.props.comic;
-    const thumnailImg = `${thumbnail.path}.${thumbnail.extension}`;
+    const thumnailImg = `${thumbnail.path.replace('http', 'https')}.${thumbnail.extension}`;
     return (
       <div className="book">
         <img src={thumnailImg} alt={`ThumbnailImg${id}`} className="book__img" />

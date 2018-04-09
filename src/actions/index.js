@@ -3,7 +3,7 @@ import { FETCH_COMICS, FETCH_COMICS_SUCCESS, FETCH_ERROR } from './types';
 // Config
 import { hash, public_key, ts, api_url } from '../config';
 
-export const fetchComics = (search = null) => dispatch => {
+export const fetchComics = (search = null, offset = null) => dispatch => {
   const testYear = /(?:(?:19|20)[0-9]{2})/;
   let startYear = null;
   let title = null;
@@ -14,6 +14,7 @@ export const fetchComics = (search = null) => dispatch => {
   }
   const req = axios.get(`${api_url}/v1/public/comics`, {
     params: {
+      offset,
       title,
       startYear,
       apikey: public_key,

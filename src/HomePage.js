@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactPaginate from 'react-paginate';
 // Assets
 import MarvelLogo from './assets/img/marvel-logo.svg';
 import SearchIcon from './assets/img/search.svg';
@@ -28,8 +29,14 @@ class HomePage extends Component {
     this.setState({ searched: this.state.search, search: '' });
   };
 
+  handlePageChange = ({ selected }) => {
+    const offset = selected * 20;
+    this.props.fetchComics(null, offset);
+  };
+
   render() {
     const { search, searched } = this.state;
+    const { comicBooksData } = this.props;
     return (
       <div className="container">
         <header className="header">
@@ -42,6 +49,20 @@ class HomePage extends Component {
           </form>
         </header>
         <h1 className="logo__heading">List of Comic Books</h1>
+        <div className="pagination">
+          <ReactPaginate
+            pageCount={comicBooksData.total / 20}
+            pageRangeDisplayed={4}
+            marginPagesDisplayed={1}
+            onPageChange={this.handlePageChange}
+            containerClassName={'pagination__list'}
+            pageClassName={'pagination__item'}
+            breakClassName={'pagination__item'}
+            activeClassName={'pagination__selected'}
+            previousClassName={'pagination__button pagination__previous'}
+            nextClassName={'pagination__button pagination__next'}
+          />
+        </div>
         {searched ? <h2 className="logo__searched">You Searched for: "{searched}"</h2> : null}
         <BookList />
       </div>
@@ -49,4 +70,6 @@ class HomePage extends Component {
   }
 }
 
-export default connect(null, { fetchComics })(HomePage);
+const mapStateToProps = ({ comicReducers }) => comicReducers;
+
+export default connect(mapStateToProps, { fetchComics })(HomePage);

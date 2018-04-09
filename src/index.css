@@ -60,6 +60,55 @@ button {
 .ml-sm {
   margin-left: 5px; }
 
+.pagination {
+  display: flex;
+  justify-content: center; }
+  .pagination__list {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    font-size: 1.8rem;
+    align-items: center;
+    text-transform: uppercase;
+    background-color: #000; }
+    .pagination__list > * {
+      cursor: pointer; }
+  .pagination__button a:focus,
+  .pagination__item a:focus {
+    outline: none; }
+  .pagination__button {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    transition: all .3s;
+    overflow: hidden; }
+    .pagination__button:hover {
+      color: #fff;
+      background-color: #000; }
+  .pagination__previous {
+    margin-right: 1rem; }
+    .pagination__previous:hover {
+      transform: translateX(-5px); }
+  .pagination__next {
+    margin-left: 1rem; }
+    .pagination__next:hover {
+      transform: translateX(5px); }
+  .pagination__item {
+    color: #fff;
+    padding: .5rem;
+    margin: .1rem;
+    transition: all .3s; }
+    .pagination__item:hover {
+      color: black;
+      background-color: white;
+      transform: translateY(5px); }
+  .pagination__selected {
+    align-self: flex-start;
+    margin: 0;
+    margin-left: .1rem;
+    margin-right: .1rem;
+    color: black;
+    background-color: #fff; }
+
 .spinner {
   width: 7rem;
   height: 6rem;
